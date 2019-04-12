@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'app/product.service';
-import { Http } from '@angular/http';
-import { Album } from 'app/album';
+import {ProductService} from '../product.service' ;
+import {Album} from '../album'
 
 @Component({
   selector: 'app-product-tracklisting',
@@ -10,12 +9,12 @@ import { Album } from 'app/album';
 })
 export class ProductTracklistingComponent implements OnInit {
 
-  constructor(private productService : ProductService) { }
+  albumInfo: Album ;
+  constructor(private _productService : ProductService) { }
 
-  albumInfo : Album ;
 
   ngOnInit() {
-    this.productService.getAlbum(1).subscribe(response => this.albumInfo = response);
+    this._productService.getAlbum(1).subscribe(response => this.albumInfo = response);
   }
 
 }
